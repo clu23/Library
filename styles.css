@@ -1,0 +1,84 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  text-align: center;
+}
+
+/* header start */
+
+.header{
+  grid-column:1/3;
+  grid-row:1/2;
+  background-color: white;
+  padding: 5px;
+  position: relative;
+  box-shadow: 0px 2px 3px rgb(175, 175, 175);
+}
+
+.App-name{
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* header stop */
+
+/* sidebar start */
+
+/* sidebar stop */
+
+/* main start */
+
+/* main stop */
+
+
+
+button{
+    background-color: rgb(35, 50, 85);
+    color:white;
+    font-weight: bold;
+    border: None;
+    border-radius: 100%;
+    font-size: 18px;
+    padding: 30px;
+}
+
+button#delete{
+    background-color: rgb(211, 153, 26);
+    color:white;
+    font-weight: bold;
+    border: None;
+    border-radius: 100%;
+    font-size: 18px;
+    padding: 30px;
+}
+
+button#erase{
+  background-color: rgb(236, 38, 38);
+  color:white;
+  font-weight: bold;
+  border: None;
+  border-radius: 100%;
+  font-size: 18px;
+  padding: 3px;
+}
+
+button:hover {
+	background: rgb(164, 196, 241);
+	color: #000;
+}
+
+button#delete:hover {
+  background:rgb(219, 175, 81);
+  color: #000;
+}
+
+button#erase:hover {
+  background:rgb(230, 93, 93);
+  color: #000;
+}
