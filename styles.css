@@ -24,11 +24,16 @@
 .App-name{
   font-weight: bold;
   font-size: 24px;
+  margin-top:15px;
 }
 
 /* header stop */
 
 /* sidebar start */
+
+.sidebar{
+  background-color: rgba(59, 191, 224, 0.678);
+}
 
 /* sidebar stop */
 
