@@ -20,13 +20,48 @@
   padding: 5px;
   position: relative;
   box-shadow: 0px 2px 3px rgb(175, 175, 175);
+  display:flex;
 }
 
 .App-name{
   font-weight: bold;
   font-size: 24px;
   margin-top:15px;
+  position: absolute;
+  /* new */
+  left: 50%;
+  transform: translateX(-50%);
 }
+
+
+.library-status{
+  border: solid 2px rgba(24, 77, 104, 0.8);
+  width: max-content;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right:5px;
+  padding: 0.5rem 2rem;
+  border-radius: 3px;
+  text-align: center;
+  color: rgba(24, 77, 104, 0.8);
+  position: relative;
+  margin-left: auto;
+}
+
+.library-status > h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.library-status > div h3 {
+  margin-right: 30px;
+  font-size: 1.1rem;
+  margin-bottom:3px;
+  text-align: left;
+}
+
+
 
 /* header stop */
 
@@ -60,36 +95,13 @@
   grid-row:2/3;
 }
 
-.library-status{
-  border: solid 2px rgba(24, 77, 104, 0.8);
-  width: max-content;
-  margin-top: 1rem;
-  padding: 0.5rem 2rem;
-  border-radius: 3px;
-  text-align: center;
-  color: rgba(24, 77, 104, 0.8);
-  position: relative;
-}
-
-.library-status > h2 {
-  font-size: 1.5rem;
-  text-align: center;
-  padding-bottom: 0.8rem;
-}
-
-.library-status > div h3 {
-  margin-right: 30px;
-  font-size: 1.1rem;
-  margin-bottom:3px;
-  text-align: left;
-}
-
 #delete-all-btn{
   color: white;
   background-color: rgb(222, 55, 55);
   border-radius: 2px;
   padding:12px;
 }
+
 /* main stop */
 
 
