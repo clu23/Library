@@ -15,6 +15,11 @@
   --dark-red: #BE3E3E;
 }
 
+input:focus,
+button:focus {
+  outline: none;
+}
+
 .container{
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -106,7 +111,7 @@ form{
 #number {
   width: 100%;
   padding: 15px 0 5px 0;
-  background-color: rgba(21, 73, 146, 0.0);;
+  background-color: rgba(21, 73, 146, 0.0);
   border: none;
   border-bottom: 2px dotted;
   color: var(--blue);
@@ -133,7 +138,7 @@ form{
 }
 
 .input-block input:focus {
-  border-bottom: 2px dotted var(--white) !important;
+  border-bottom: 2px dotted white !important;
 }
 
 
@@ -182,7 +187,7 @@ form{
   display: none;
   margin: 0;
   font-size: 13px;
-  color: var(--red);
+  color: black;
 }
 
 /* sidebar stop */
