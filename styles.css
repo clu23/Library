@@ -3,12 +3,25 @@
   padding: 0;
 }
 
+/* COLOR PALETTE */
+:root {
+  --white: #F7F1F0;
+  --cream: #E9C1AF;
+  --blue: #1F3E59;
+  --dark-blue: #1A3246;
+  --green: #478647;
+  --dark-green: #337433;
+  --red: #D05050;
+  --dark-red: #BE3E3E;
+}
+
 .container{
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr 7fr;
   text-align: center;
   height:100vh;
+  font-family: "Montserrat-Regular", Arial, Helvetica, sans-serif;
 }
 
 /* header start */
@@ -68,11 +81,14 @@
 /* sidebar start */
 
 .sidebar{
-  background-color: rgba(59, 191, 224, 0.678);
+  background-color: rgba(21, 73, 146, 0.678);
   grid-column: 1/2;
   grid-row:2/3;
 }
 
+form{
+  margin: 30px 20px 30px 20px;
+}
 .theme-books {
   --fa-secondary-color: var(--white);
   --fa-secondary-opacity: 1.0;
@@ -85,6 +101,89 @@
   text-align: center;
 }
 
+#name,
+#title,
+#number {
+  width: 100%;
+  padding: 15px 0 5px 0;
+  background-color: rgba(21, 73, 146, 0.0);;
+  border: none;
+  border-bottom: 2px dotted;
+  color: var(--blue);
+}
+
+
+/* FLOATING INPUT PLACEHOLDER STYLE */
+.input-block {
+  position: relative;
+}
+
+.input-block span.placeholder {
+  position: absolute;
+  margin: 17px 0;
+  left: 0;
+  transition: all 0.3s;
+  transform-origin: 0% 0%;
+  pointer-events: none;
+}
+
+.input-block input:valid + span.placeholder,
+.input-block input:focus + span.placeholder {
+  transform: scale(0.8) translateY(-30px);
+}
+
+.input-block input:focus {
+  border-bottom: 2px dotted var(--white) !important;
+}
+
+
+/* CHECKBOX INPUT STYLE */
+.checkbox {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 5px;
+}
+.checkbox-input input {
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+}
+.checkbox-control {
+  display: inline-grid;
+  align-self: center;
+  width: 1em;
+  height: 1em;
+  border: 1px solid;
+  border-radius: 2px;
+}
+.checkbox-input {
+  display: grid;
+  grid-template-areas: "checkbox";
+}
+.checkbox-input > * {
+  grid-area: checkbox;
+}
+.checkbox-control svg {
+  opacity: 0;
+}
+
+.checkbox-input input:checked
+ + .checkbox-control svg {
+  opacity: 1;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+/* FORM VALIDATION */
+.validation-block {
+  height: 40px;
+}
+.validation-text {
+  display: none;
+  margin: 0;
+  font-size: 13px;
+  color: var(--red);
+}
 
 /* sidebar stop */
 
@@ -93,47 +192,81 @@
 .main{
   grid-column:2/3;
   grid-row:2/3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  background-color: var(--white);
 }
 
 #delete-all-btn{
   color: white;
   background-color: rgb(222, 55, 55);
+  font-size: 16px;
+  font-weight:bold;
   border-radius: 2px;
+  border: 1px solid rgb(222, 55, 55);
   padding:12px;
+  margin-bottom: 10px;
+  transition: 0.3s;
 }
+
+/* TABLE STYLE */
+#books-list {
+  width: 70%;
+  border-collapse: collapse;
+}
+
+#books-list td {
+  padding: 25px;
+}
+
+#book-requirements {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.book-info {
+  border-bottom: 2px dotted var(--blue);
+}
+
+.book-info i {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.book-info i:hover,
+.close-modal:hover,
+.cancel-removal:hover {
+  cursor: pointer;
+}
+
+.fa-check {
+  color: var(--green);
+  transition: 0.3s;
+}
+
+.fa-check:hover {
+  color: var(--dark-green);
+}
+
+.fa-times,
+.fa-trash-alt {
+  color: var(--red);
+  transition: 0.3s;
+}
+
+.fa-times:hover,
+.fa-trash-alt:hover {
+  color: var(--dark-red);
+}
+
 
 /* main stop */
 
 
-
-button{
-    background-color: rgb(35, 50, 85);
-    color:white;
-    font-weight: bold;
-    border: None;
-    border-radius: 100%;
-    font-size: 18px;
-    padding: 30px;
-}
-
-button#delete{
-    background-color: rgb(211, 153, 26);
-    color:white;
-    font-weight: bold;
-    border: None;
-    border-radius: 100%;
-    font-size: 18px;
-    padding: 30px;
-}
-
-button#erase{
-  background-color: rgb(236, 38, 38);
-  color:white;
-  font-weight: bold;
-  border: None;
-  border-radius: 100%;
-  font-size: 18px;
-  padding: 3px;
+button:focus {
+  outline: none;
 }
 
 button:hover {
