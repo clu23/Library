@@ -47,6 +47,10 @@ function deleteAll(){
 
 
 
+addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
+addBookToLibrary('Le vieil homme et la mer','E. Hemingway',220,true)
+showLibraryInfo()
+console.log(myLibrary)
 
 
 
