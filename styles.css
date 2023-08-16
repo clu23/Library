@@ -93,6 +93,8 @@ button:focus {
 
 form{
   margin: 30px 20px 30px 20px;
+  display: flex;
+  flex-direction: column;
 }
 .theme-books {
   --fa-secondary-color: var(--white);
@@ -190,6 +192,30 @@ form{
   color: black;
 }
 
+
+#add-book {
+  max-width: 150px;
+  padding: 15px 10px;
+  margin-top: 40px;
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+  color: var(--white);
+  margin-right: 35px;
+  border-radius: 6px;
+  transition: 0.3s;
+  font-size:20px;
+  font-weight: bold;
+  align-self: center;
+}
+
+#add-book:hover {
+  cursor: pointer;
+  border-color: var(--dark-blue);
+  background-color: var(--dark-blue);
+  transition: 0.3s;
+}
+
+
 /* sidebar stop */
 
 /* main start */
@@ -209,10 +235,17 @@ form{
   background-color: rgb(222, 55, 55);
   font-size: 16px;
   font-weight:bold;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid rgb(222, 55, 55);
   padding:12px;
   margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+#delete-all-btn:hover{
+  cursor: pointer;
+  border-color: rgb(101, 27, 27);
+  background-color: rgb(101, 27, 27);
   transition: 0.3s;
 }
 
