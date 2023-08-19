@@ -24,10 +24,10 @@ function showLibraryInfo() {
   booksRead.textContent = 0;
   booksUnread.textContent = 0;
   for (let i = 0; i < myLibrary.length; i ++) {
-    if (myLibrary[i].status === true) {
+    if (myLibrary[i].read === true) {
       readCounter += 1;
       booksRead.textContent = readCounter;
-    } else if (myLibrary[i].status === false) {
+    } else if (myLibrary[i].read === false) {
       unreadCounter += 1;
       booksUnread.textContent = unreadCounter;
     }
@@ -36,7 +36,47 @@ function showLibraryInfo() {
 }
 
 function showBooksInLibrary(){
-  //do stuff here
+  showLibraryInfo();
+  const bookList = document.querySelector('#table-body');
+  bookList.textContent = ''
+  for (i=0; i<myLibrary.length;i++){
+    const bookRow=document.createElement('tr');
+    bookRow.classList.add('book-info');
+    bookList.appendChild(bookRow);
+    // BOOK TITLE
+    const bookTitle=document.createElement('td');
+    bookTitle.textContent=myLibrary[i].title;
+    bookRow.appendChild(bookTitle);
+    //BOOK AUTHOR
+    const bookAuthor=document.createElement('td');
+    bookAuthor.textContent=myLibrary[i].author;
+    bookRow.appendChild(bookAuthor);
+    //BOOK PAGES
+    const bookPages=document.createElement('td');
+    bookPages.textContent=myLibrary[i].pages;
+    bookRow.appendChild(bookPages);
+    //BOOK READ
+    const bookRead=document.createElement('td');
+    const statusSymbol = document.createElement('button');
+    statusSymbol.classList.add('readBtn') 
+    if (myLibrary[i].read === false) {
+      statusSymbol.textContent = 'Not read';
+      statusSymbol.style.border='1px solid #e04f63';
+    } else {
+      statusSymbol.textContent = 'Read';
+      statusSymbol.style.backgroundColor = '#63da63'
+      statusSymbol.style.border='1px solid #63da63'
+    }
+    bookRead.appendChild(statusSymbol);
+    bookRow.appendChild(bookRead);
+    // BOOK REMOVAL BUTTON
+    const bookDelete = document.createElement('td');
+    const deleteSymbol = document.createElement('button');
+    deleteSymbol.classList.add('removeBtn')
+    deleteSymbol.textContent='Remove'
+    bookDelete.appendChild(deleteSymbol);
+    bookRow.appendChild(bookDelete);
+  }
 }
 
 function deleteAll(){
@@ -49,7 +89,8 @@ function deleteAll(){
 
 addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
 addBookToLibrary('Le vieil homme et la mer','E. Hemingway',220,true)
-showLibraryInfo()
+addBookToLibrary('Pour qui sonne le glas','E. Hemingway',420,false)
+showBooksInLibrary()
 console.log(myLibrary)
 
 
