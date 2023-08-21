@@ -1,4 +1,5 @@
 let myLibrary=[];
+let bookList
 
 class Book {
   constructor(title, author, pages, read) {
@@ -37,7 +38,7 @@ function showLibraryInfo() {
 
 function showBooksInLibrary(){
   showLibraryInfo();
-  const bookList = document.querySelector('#table-body');
+  bookList = document.querySelector('#table-body');
   bookList.textContent = ''
   for (i=0; i<myLibrary.length;i++){
     const bookRow=document.createElement('tr');
@@ -75,22 +76,32 @@ function showBooksInLibrary(){
     deleteSymbol.classList.add('removeBtn')
     deleteSymbol.textContent='Remove'
     bookDelete.appendChild(deleteSymbol);
+    deleteSymbol.setAttribute('id', i);
+    deleteSymbol.addEventListener('click',(evt) => deleteBook(evt),false);
     bookRow.appendChild(bookDelete);
   }
+}
+
+
+
+function deleteBook(e){
+  myLibrary.splice(e.target.getAttribute("id"),1);
+  console.log(myLibrary);
+  showBooksInLibrary();
 }
 
 function deleteAll(){
   //delete all books from library
   myLibrary=[]
-  showLibraryInfo()
+  showBooksInLibrary()
 }
 
-
+document.getElementById('delete-all-btn').addEventListener('click',deleteAll,false);
 
 addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
 addBookToLibrary('Le vieil homme et la mer','E. Hemingway',220,true)
 addBookToLibrary('Pour qui sonne le glas','E. Hemingway',420,false)
-showBooksInLibrary()
+
 console.log(myLibrary)
 
 
