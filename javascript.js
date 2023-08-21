@@ -86,7 +86,6 @@ function showBooksInLibrary(){
 
 function deleteBook(e){
   myLibrary.splice(e.target.getAttribute("id"),1);
-  console.log(myLibrary);
   showBooksInLibrary();
 }
 
