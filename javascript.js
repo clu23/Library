@@ -64,12 +64,21 @@ function showBooksInLibrary(){
     statusSymbol.addEventListener('click',(evt) => changeBookStatus(evt),false);
     if (myLibrary[i].read === false) {
       statusSymbol.textContent = 'Not read';
-      statusSymbol.style.border='1px solid #e04f63';
+      statusSymbol.style.border='1px solid rgb(226, 89, 15)';
+      statusSymbol.onmouseover = (event) => { event.target.style.backgroundColor='rgb(185, 72, 16)';
+      event.target.style.border='1px solid rgb(185, 72, 16)';}
+      statusSymbol.onmouseout = () => { event.target.style.backgroundColor='rgb(226, 89, 15)';
+      event.target.style.border='1px solid rgb(226, 89, 15)';}
     } else {
       statusSymbol.textContent = 'Read';
       statusSymbol.style.backgroundColor = '#63da63'
       statusSymbol.style.border='1px solid #63da63'
+      statusSymbol.onmouseover = (event) => { event.target.style.backgroundColor='rgb(33, 165, 50)';
+      event.target.style.border='1px solid rgb(33, 165, 50)';}
+      statusSymbol.onmouseout = (event) => { event.target.style.backgroundColor='#63da63';
+      event.target.style.border='1px solid #63da63';}
     }
+    
     bookRead.appendChild(statusSymbol);
     bookRow.appendChild(bookRead);
     // BOOK REMOVAL BUTTON
@@ -141,6 +150,10 @@ function deleteAll(){
   //delete all books from library
   myLibrary=[]
   showBooksInLibrary()
+}
+
+function kameamea(){
+    this.style.backgroundColor='rgb(10, 93, 35)';
 }
 
 const handleKeyboardInput = (e) => {
