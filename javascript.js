@@ -83,6 +83,40 @@ function showBooksInLibrary(){
 }
 
 
+function formValidation(event) {
+  event.preventDefault();
+  const form = document.querySelector('form');
+  const titleInput = document.querySelector('#title');
+  const titleErr = document.querySelector('.title');
+  const nameInput = document.querySelector('#name');
+  const nameErr = document.querySelector('.name');
+  const numberInput = document.querySelector('#number');
+  const numberErr = document.querySelector('.number');
+  const checkbox = document.querySelector('input[name="checkbox"]');
+  if (titleInput.value === '') {
+    titleErr.style.display = 'block';
+  } else {
+    titleErr.style.display = 'none';
+  }
+  if (nameInput.value === '') {
+    nameErr.style.display = 'block';
+  } else {
+    nameErr.style.display = 'none';
+  }
+  if (numberInput.value === '' || numberInput.value.match(/[^1-9]/) || numberInput.value <= 0) {
+    numberErr.style.display = 'block';
+  } else {
+    numberErr.style.display = 'none';
+  }
+  if (titleInput.value !== '' && nameInput.value !== '' && numberInput.value !== '' && numberInput.value > 0) {
+    if (checkbox.checked) {
+      addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, true);
+    } else {
+      addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, false);
+    }
+    form.reset();
+  }
+}
 
 function deleteBook(e){
   //delete a book from library
@@ -96,13 +130,22 @@ function deleteAll(){
   showBooksInLibrary()
 }
 
+const handleKeyboardInput = (e) => {
+  if (e.key === 'u') {
+  }
+}
+
+
 document.getElementById('delete-all-btn').addEventListener('click',deleteAll,false);
+document.getElementById('add-book').addEventListener('click',formValidation,false);
 
 addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
 addBookToLibrary('Le vieil homme et la mer','E. Hemingway',220,true)
 addBookToLibrary('Pour qui sonne le glas','E. Hemingway',420,false)
 
 console.log(myLibrary)
+
+
 
 
 

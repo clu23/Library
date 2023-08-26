@@ -30,5 +30,4 @@ class Library {
         return this.books.some((book) => book.title === newBook.title)
     }
     
-
 }
