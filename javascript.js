@@ -60,6 +60,8 @@ function showBooksInLibrary(){
     const bookRead=document.createElement('td');
     const statusSymbol = document.createElement('button');
     statusSymbol.classList.add('readBtn') 
+    statusSymbol.setAttribute('id',i);
+    statusSymbol.addEventListener('click',(evt) => changeBookStatus(evt),false);
     if (myLibrary[i].read === false) {
       statusSymbol.textContent = 'Not read';
       statusSymbol.style.border='1px solid #e04f63';
@@ -118,6 +120,17 @@ function formValidation(event) {
   }
 }
 
+
+function changeBookStatus(e){
+  if(myLibrary[e.target.getAttribute("id")].read===true){
+    myLibrary[e.target.getAttribute("id")].read=false;
+  }
+  else{
+    myLibrary[e.target.getAttribute("id")].read=true;
+  }
+  showBooksInLibrary();
+}
+
 function deleteBook(e){
   //delete a book from library
   myLibrary.splice(e.target.getAttribute("id"),1);
@@ -143,7 +156,7 @@ addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
 addBookToLibrary('Le vieil homme et la mer','E. Hemingway',220,true)
 addBookToLibrary('Pour qui sonne le glas','E. Hemingway',420,false)
 
-console.log(myLibrary)
+//console.log(myLibrary)
 
 
 
