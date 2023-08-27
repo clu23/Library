@@ -129,6 +129,21 @@ function formValidation(event) {
   }
 }
 
+function windowOpening() {
+  const modal = document.querySelector('#modal');
+  modal.style.display = 'block';
+  modal.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target.classList.contains('close')) {
+      modal.style.display = 'none';
+    } else if (target.classList.contains('confirm-removal')) {
+      myLibrary = [];
+      modal.style.display = 'none';
+      showBooksInLibrary()
+    }
+  });
+  
+}
 
 function changeBookStatus(e){
   if(myLibrary[e.target.getAttribute("id")].read===true){
@@ -162,7 +177,7 @@ const handleKeyboardInput = (e) => {
 }
 
 
-document.getElementById('delete-all-btn').addEventListener('click',deleteAll,false);
+document.getElementById('delete-all-btn').addEventListener('click',windowOpening,false);
 document.getElementById('add-book').addEventListener('click',formValidation,false);
 
 addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
