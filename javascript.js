@@ -180,11 +180,7 @@ const handleKeyboardInput = (e) => {
 document.getElementById('delete-all-btn').addEventListener('click',windowOpening,false);
 document.getElementById('add-book').addEventListener('click',formValidation,false);
 
-addBookToLibrary('Le Pere Goriot','H. de Balzac',500,true)
-addBookToLibrary('Le vieil homme et la mer','E. Hemingway',220,true)
-addBookToLibrary('Pour qui sonne le glas','E. Hemingway',420,false)
 
-//console.log(myLibrary)
 
 
 
