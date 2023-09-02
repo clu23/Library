@@ -31,3 +31,5 @@ class Library {
     }
     
 }
+
+const library = new Library();

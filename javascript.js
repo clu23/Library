@@ -37,7 +37,6 @@ function showLibraryInfo() {
 }
 
 function showBooksInLibrary(){
-  showLibraryInfo();
   bookList = document.querySelector('#table-body');
   bookList.textContent = ''
   for (i=0; i<myLibrary.length;i++){
@@ -67,7 +66,7 @@ function showBooksInLibrary(){
       statusSymbol.style.border='1px solid rgb(226, 89, 15)';
       statusSymbol.onmouseover = (event) => { event.target.style.backgroundColor='rgb(185, 72, 16)';
       event.target.style.border='1px solid rgb(185, 72, 16)';}
-      statusSymbol.onmouseout = () => { event.target.style.backgroundColor='rgb(226, 89, 15)';
+      statusSymbol.onmouseout = (event) => { event.target.style.backgroundColor='rgb(226, 89, 15)';
       event.target.style.border='1px solid rgb(226, 89, 15)';}
     } else {
       statusSymbol.textContent = 'Read';
@@ -91,6 +90,7 @@ function showBooksInLibrary(){
     deleteSymbol.addEventListener('click',(evt) => deleteBook(evt),false);
     bookRow.appendChild(bookDelete);
   }
+  showLibraryInfo();
 }
 
 
@@ -167,9 +167,6 @@ function deleteAll(){
   showBooksInLibrary()
 }
 
-function kameamea(){
-    this.style.backgroundColor='rgb(10, 93, 35)';
-}
 
 const handleKeyboardInput = (e) => {
   if (e.key === 'u') {
